@@ -1,0 +1,13 @@
+---
+- hosts: main
+  vars_files:
+    - variables
+  tasks:
+  - name: install vim package
+    ansible.builtin.yum:
+      name: 
+        - vim
+        - "{{ package1 }}"
+        - "{{ package2 }}"
+      state: present
+    when: ansible_distribution == "CentOS"
