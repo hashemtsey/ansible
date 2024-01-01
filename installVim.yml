@@ -5,3 +5,4 @@
     ansible.builtin.yum:
       name: vim
       state: present
+    when: ansible_distribution == "CentOS" and ansible_nodename == "mysql-machine-1.novalocal"
