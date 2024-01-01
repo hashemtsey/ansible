@@ -1,8 +1,13 @@
 ---
 - hosts: all
+  vars_files:
+    - variables
   tasks:
   - name: install vim package
     ansible.builtin.yum:
-      name: vim
+      name: 
+        - vim
+        - "{{ package1 }}"
+        - "{{ package2 }}"
       state: present
-    when: ansible_distribution == "CentOS" and ansible_nodename == "mysql-machine-1.novalocal"
+    when: ansible_distribution == "CentOS"
